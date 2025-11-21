@@ -1,4 +1,4 @@
-# Simple Array Statistical Analysis by Ryan Mendoza 100409153
+# Array Statistical Analysis by Ryan Mendoza 100409153
 
 This HTML program allows you to enter a comma-separated list of numbers and calculates basic statistical analysis on the array.
 
