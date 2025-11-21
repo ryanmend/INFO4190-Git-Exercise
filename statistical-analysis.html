@@ -78,11 +78,25 @@
                 const count = numbers.length;
                 const average = sum / count;
 
+                // Minimum and maximum
+                let min = numbers[0];
+                let max = numbers[0];
+                for (let i = 1; i < numbers.length; i++) {
+                    if (numbers[i] < min) {
+                        min = numbers[i];
+                    }
+                    if (numbers[i] > max) {
+                        max = numbers[i];
+                    }
+                }
+
                 // Display the results
                 document.getElementById("output").innerHTML = `
                     Sum: ${sum}<br>
                     Count: ${count}<br>
                     Average: ${average.toFixed(2)}<br>
+                    Minimum: ${min}<br>
+                    Maximum: ${max}<br>
                 `;
 
             } catch (error) {
