@@ -1,0 +1,96 @@
+<!-- Ryan Mendoza 100409153 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Statistical Analysis</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Array Statistical Analysis</h1>
+
+    <label for="arrayInput">Enter your numbers separated by commas:</label>
+    <input type="text" id="arrayInput" name="arrayInput">
+    <button onclick="analyzeArray()">Analyze Array</button>
+
+    <div id="output"></div>
+
+
+    <script>
+        function analyzeArray() {
+            const inputString = document.getElementById("arrayInput").value;
+
+            if (!inputString) {
+                document.getElementById("output").textContent = "Please enter numbers separated by commas.";
+                return;
+            }
+
+            try {
+                // Split the string into an array of strings, then convert to numbers
+                const numberStrings = inputString.split(',');
+                const numbers = numberStrings.map(str => parseFloat(str.trim())); // trim() removes whitespace
+
+                if (numbers.some(isNaN)) {  // Check for invalid numbers
+                    document.getElementById("output").textContent = "Invalid input: Please enter only numbers separated by commas.";
+                    return;
+                }
+
+                // Statistical Analysis
+                // Mean
+                const sum = numbers.reduce((acc, num) => acc + num, 0);
+                const count = numbers.length;
+                const average = sum / count;
+
+                // Display the results
+                document.getElementById("output").innerHTML = `
+                    Sum: ${sum}<br>
+                    Count: ${count}<br>
+                    Average: ${average.toFixed(2)}<br>
+                `;
+
+            } catch (error) {
+                document.getElementById("output").textContent = "An error occurred while processing the array.";
+                console.error(error);  // Log the error to the console for debugging
+            }
+        }
+    </script>
+
+</body>
+</html>
