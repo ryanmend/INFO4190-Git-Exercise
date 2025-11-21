@@ -4,7 +4,7 @@ This HTML program allows you to enter a comma-separated list of numbers and calc
 
 ## Features:
 
-*   Calculates Sum, Count, Average, Minimum and Maximum.
+*   Calculates Sum, Count, Average, Minimum, Maximum, and Standard Deviation.
 *   User-friendly input field and output display.
 *   Includes error handling for invalid inputs (non-numeric values).
 

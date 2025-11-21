@@ -89,6 +89,14 @@
                         max = numbers[i];
                     }
                 }
+      
+                // Standard deviation
+                let squaredDifferencesSum = 0;
+                for (let i = 0; i < numbers.length; i++) {
+                    squaredDifferencesSum += Math.pow(numbers[i] - average, 2);
+                }
+                const variance = squaredDifferencesSum / count;  // Population Variance
+                const standardDeviation = Math.sqrt(variance);
 
                 // Display the results
                 document.getElementById("output").innerHTML = `
@@ -97,6 +105,7 @@
                     Average: ${average.toFixed(2)}<br>
                     Minimum: ${min}<br>
                     Maximum: ${max}<br>
+                    Standard Deviation: ${standardDeviation.toFixed(2)}<br>
                 `;
 
             } catch (error) {
