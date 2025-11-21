@@ -78,11 +78,20 @@
                 const count = numbers.length;
                 const average = sum / count;
 
+                // Standard deviation
+                let squaredDifferencesSum = 0;
+                for (let i = 0; i < numbers.length; i++) {
+                    squaredDifferencesSum += Math.pow(numbers[i] - average, 2);
+                }
+                const variance = squaredDifferencesSum / count;  // Population Variance
+                const standardDeviation = Math.sqrt(variance);
+
                 // Display the results
                 document.getElementById("output").innerHTML = `
                     Sum: ${sum}<br>
                     Count: ${count}<br>
                     Average: ${average.toFixed(2)}<br>
+                    Standard Deviation: ${standardDeviation.toFixed(2)}<br>
                 `;
 
             } catch (error) {
